@@ -1,5 +1,7 @@
-consumer_key = "2y41azlggpMo35SeUl2dO4h7m"
-consumer_secret ="FqELWqUQ7PxCGPXa6THcpMLIEnacM0TwLKepfsWoGkmk75GpNy"
+#Add your own credentials here in place of xxxxxxx.
 
-access_token = "1110617095-GzBxOSoDkcs4JvTvvqJF8VJj7W7atcAy0vPMSdo"
-access_token_secret ="IkNiASRPiw6eDAlZJsQPX78cQ8FpFUfsE7P8o8rRYImsh"
+consumer_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+consumer_secret ="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+access_token = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+access_token_secret ="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
