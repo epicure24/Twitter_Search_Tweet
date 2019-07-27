@@ -8,13 +8,9 @@ import pandas as pd
 def bmp(s):
     return "".join((i if ord(i) < 10000 else '\ufffd' for i in s))
 
-max_pages=50
+max_pages=100
 
-table = pd.DataFrame({"TWEET_ID":[],"TWEET_TEXT":[],"HASHTAGS":[],"USER_NAME":[],
-                      "USER_SCREENNAME":[], "USER_ID":[], "FAVORITE_COUNT":[],
-                      "RETWEET_COUNT":[],"USER_LOCATION":[],"DATE":[],
-                      "URL_IN_TWEET":[],"USER_MENTIONS":[]})
-url ='https://api.twitter.com/1.1/search/tweets.json?q=%23entertainment&lang=en&result_type=mixed&count=100'
+url ='https://api.twitter.com/1.1/search/tweets.json?q=%23food&lang=en&result_type=mixed&count=100'
 count =0
 list_id =[]
 for i in range(0, max_pages):
@@ -31,21 +27,17 @@ for i in range(0, max_pages):
         s = bmp(s)
         s = literal_eval(s)
         list_id.append(s['id'])
-        table=table.append({"TWEET_ID":s['id'],"TWEET_TEXT":s['text'],
-                              "HASHTAGS":[i['text']for i in s['entities']['hashtags']],
-                              "USER_NAME":s['user']['name'],
-                              "USER_SCREENNAME":s['user']['screen_name'],
-                              "USER_ID":s['user']['id'],"FAVORITE_COUNT":s['favorite_count'],
-                              "RETWEET_COUNT":s['retweet_count'],"USER_LOCATION":s['user']['location'],
-                              "DATE":s['created_at'],"URL_IN_TWEET":[i['url'] for i in s['entities']['urls']],
-                              "USER_MENTIONS":s['entities']['user_mentions']},
-                             ignore_index=True)
+        print("**********************TWEET NUMBER************************ :",count)
+        print()
+        print(s['text']) #for the tweet text ..if you want all info just print(s)
+        print()
+        print("**********************Next_Tweet*************************")
+
         
     url = url + "&max_id={}".format(min(list_id)-1)
 
 
-table.to_csv('Informative.csv', mode='a', index=False)
-print('**************************')
+print()
 print('NUMBER_OF_TWEETS: ', count)
  
     
